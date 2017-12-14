@@ -3,13 +3,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-	attr_accessor :name, :username
+	#attr_accessor :name, :username
 	has_many :followers, :through => 'Follower', :foreign_key => 'followee_id'
   	has_many :followees, :through => 'Follower', :foreign_key => 'follower_id'
 	has_one :profile
 	has_many :tweets
 
-	validates :name, presence: true
 	validates :username, presence: true, uniqueness: true
 	#validates :email, presence: true, uniqueness: true
 	#validates :password, presence: true#, 

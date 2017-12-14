@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 20171214120742) do
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
   create_table "tweets", force: true do |t|
-    t.string   "content",    limit: 140, null: false
+    t.string   "content",    limit: 140, default: "", null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"

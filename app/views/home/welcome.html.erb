@@ -1,4 +1,13 @@
-<h1>Hi <%= current_user %> Welcome to MyTwitter</h1>
+<h1>Hi <%= current_user.name %> Welcome to MyTwitter</h1>
+<div>
+	Here are your tweets :-
+</div>
+
+<% for @t in current_user.tweets %>
+  <div>
+  	<p><%= @t.content %></p>
+  </div>
+<% end %>
 
 <div>
 <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
