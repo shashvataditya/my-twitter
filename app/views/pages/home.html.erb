@@ -1,4 +1,4 @@
-<h1>Hi <%= current_user.name %> Welcome to MyTwitter</h1>
+<h1>Hi <%= current_user.name %></h1>
 <!--<div>
 	Here are your tweets :-
 </div>
@@ -8,7 +8,13 @@
   	<p><%= @t.content %></p>
   </div>
 <% end %>-->
-<%= render 'compoments/tweet_form'
+<div>All Posts:-</div>
+<div>Posts:-</div>
+<% for @t in @allTweets %>
+	<div>
+		<p><%= @t.content %></p>  
+	</div>
+<% end %>
 
 <div>
 <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 

@@ -1,8 +1,6 @@
 class HomeController < ApplicationController
   def welcome
-  	if (User.find_by_username(params[:id]))
-  		@username = params[:id]
-  	end
+  	@newpost = Post.new
 
   	@tweets = Tweet.all
   end

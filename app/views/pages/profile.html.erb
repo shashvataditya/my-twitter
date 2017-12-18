@@ -1,0 +1,7 @@
+<h1><%= @username %></h1>
+<div>Posts:-</div>
+<% for @t in @tweets %>
+	<div>
+		<p><%= @t.content %></p> 
+	</div>
+<% end %>
