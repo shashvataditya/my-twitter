@@ -1,1 +1,45 @@
-INDEX PAGE
+<% if !user_signed_in? %>
+	<style>
+		body {
+			background-color: cyan
+		}
+		.container-index {
+			margin-left: 15%;
+			margin-right: 15%;
+		}
+		.text {
+			font-weight: 300;
+			font-size: 130%;
+		}
+		.log-in-sign-up {
+			float: right;
+			width: 300px;
+			height: 150px;
+		}
+		.sign-up {
+			float: right;
+			width: 250px;
+			height: 250px;
+		}
+	</style>
+	<div class="container-index row">
+	  	<div class="col-sm-6">
+			<h1>Welcome To MyTwitter</h1>
+			<p class="text"> 
+				Connect with people you know.<br> Get to know more people.
+			</p>
+	  	</div>
+	  	<div class="col-sm-6 log-in-sign-up">
+		  	<button class="btn btn-link">
+				<%= link_to('Sign Up', new_user_registration_path) %>
+		  	</button>
+		  	<br>
+		  	<button class="btn btn-link">
+				<%= link_to('Sign In', new_user_session_path) %>
+		  	</button>
+	  	</div>
+	</div>
+<% else %>
+	Successfully signed in!
+	<%controller.redirect_to '/home' %>
+<% end %>

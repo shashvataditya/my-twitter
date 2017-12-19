@@ -1,7 +1,39 @@
-<h1><%= @username %></h1>
-<div>Posts:-</div>
-<% for @t in @tweets %>
-	<div>
-		<p><%= @t.content %></p> 
+<div class="row">
+	<div class="col-xs-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<div>
+					<%= @username %>
+				</div>
+				<div>
+					<p>About : </p>
+					<% if @profileExists %>
+						<p><%= @profile.about %></p>
+					<% end %>
+				</div>
+				<div>
+					<p>School Name : </p>
+					<% if @profileExists %>
+						<p><%= @profile.schoolname %></p>
+					<% end %>
+				</div>
+				<% if current_user.username == params[:id] %>
+					<div>
+						<%= link_to('Edit Profile', '/edit/profile') %>
+					</div>
+				<% end %>
+			</div>
+		</div>
 	</div>
-<% end %>
+	<div class="col-xs-6">
+		<% for @t in @userTweets %>
+			<div class="panel panel-default">
+				<div class="panel-body">
+					<p><%= @t.content %></p>
+				</div>
+			</div>
+		<% end %>
+	</div>
+	<div class="col-xs-3">
+	</div>
+</div>

@@ -2,6 +2,7 @@ Mytwitter::Application.routes.draw do
   #get "home/welcome"
   devise_for :users
   resources :tweets
+  resources :profiles
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -9,6 +10,7 @@ Mytwitter::Application.routes.draw do
   root 'pages#index'
   get '/home' => 'pages#home'
   get '/profile/:id' => 'pages#profile'
+  get '/edit/profile' => 'profiles#editprofile'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

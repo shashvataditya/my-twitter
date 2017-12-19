@@ -1,0 +1,16 @@
+<%= form_for(@newprofile) do |f| %> 
+
+  <div class="field">
+    <%= f.label :about %><br />
+    <%= f.text_field :about, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :schoolname %><br />
+    <%= f.text_field :schoolname, autofocus: false %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>

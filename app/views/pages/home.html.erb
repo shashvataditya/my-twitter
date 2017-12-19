@@ -15,13 +15,13 @@ div>All Posts:-</div>
 
 	</div>
 	<div class="col-xs-6">
-		<div class="panel panel-default">
-			<% for @t in @allTweets %>
+		<% for @t in @allTweets %>
+			<div class="panel panel-default">
 				<div class="panel-body">
 					<p><%= @t.content %></p>
 				</div>
-			<% end %>
-		</div>
+			</div>
+		<% end %>
 	</div>
 	<div class="col-xs-3">
 		<div class="panel panel-default">
