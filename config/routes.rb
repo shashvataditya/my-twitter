@@ -1,8 +1,14 @@
 Mytwitter::Application.routes.draw do
   #get "home/welcome"
   devise_for :users
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
   resources :tweets
   resources :profiles
+  resources :follow_relationships
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

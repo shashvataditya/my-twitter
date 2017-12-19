@@ -35,5 +35,22 @@
 		<% end %>
 	</div>
 	<div class="col-xs-3">
+		<%= render '/components/follow_button'%>
+		Followers:-
+		<div class="panel panel-default">
+			<% for @f in @profileUser.followers %>
+				<div class="panel-body">
+					<%= @f.username %>
+				</div>
+			<% end %>
+		</div>
+		Followees:-
+		<div class="panel panel-default">
+			<% for @f in @profileUser.following %>
+				<div class="panel-body">
+					<%= @f.username %>
+				</div>
+			<% end %>
+		</div>
 	</div>
 </div>
