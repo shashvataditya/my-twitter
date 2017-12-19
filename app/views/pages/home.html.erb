@@ -1,14 +1,5 @@
-<h1>Hi <%= current_user.name %></h1>
-<!--<div>
-	Here are your tweets :-
-</div>
-
-<% for @t in current_user.tweets %>
-  <div>
-  	<p><%= @t.content %></p>
-  </div>
-<% end %>-->
-<div>All Posts:-</div>
+<!--<h1>Hi <%= current_user.name %></h1>
+div>All Posts:-</div>
 <div>Posts:-</div>
 <% for @t in @allTweets %>
 	<div>
@@ -18,4 +9,25 @@
 
 <div>
 <%= link_to('Logout', destroy_user_session_path, method: :delete) %> 
+</div>-->
+<div class="row">
+	<div class="col-xs-3">
+
+	</div>
+	<div class="col-xs-6">
+		<div class="panel panel-default">
+			<% for @t in @allTweets %>
+				<div class="panel-body">
+					<p><%= @t.content %></p>
+				</div>
+			<% end %>
+		</div>
+	</div>
+	<div class="col-xs-3">
+		<div class="panel panel-default">
+			<div class="panel-body">
+				<%= render 'components/tweet_form' %>
+			</div>
+		</div>
+	</div>
 </div>
