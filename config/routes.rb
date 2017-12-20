@@ -15,6 +15,7 @@ Mytwitter::Application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'pages#index'
   get '/home' => 'pages#home'
+  get '/explore' => 'pages#explore'
   get '/profile/:id' => 'pages#profile'
   get '/edit/profile' => 'profiles#editprofile'
 

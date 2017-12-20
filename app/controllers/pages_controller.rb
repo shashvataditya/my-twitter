@@ -4,8 +4,12 @@ class PagesController < ApplicationController
 	end
 
 	def home
-		@allTweets = Tweet.all
+		followeeIdList = []
 
+		current_user.following.each do |f|
+			followeeIdList << f.id
+		end
+		@allfolloweeTweets = Tweet.find_all_by_user_id(followeeIdList)
 		@newTweet = Tweet.new
 	end
 
@@ -24,5 +28,9 @@ class PagesController < ApplicationController
 			@profileExists = false;
 		end
 		@userTweets = Tweet.all.where("user_id = ?", User.find_by_username(params[:id]).id)
+	end
+
+	def explore
+		@allTweets = Tweet.all
 	end
 end
