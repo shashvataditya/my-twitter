@@ -15,8 +15,6 @@ class User < ActiveRecord::Base
 
 	validates :username, presence: true, uniqueness: true
 	validates :email, presence: true, uniqueness: true
-	#validates :password, length: { minimum: 8 }, unless: "password.nil?"
-	#validates :password, presence: true, if: "id.nil?"
 	validates :password, format: { with: /\A(?=.*[A-Za-z]).{8,}\z/, message: "Password must include at least 1 alphabet" }, unless: "password.nil?"
 
 	def follow(otheruser)

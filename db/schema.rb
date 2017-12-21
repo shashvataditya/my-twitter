@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171219221218) do
+ActiveRecord::Schema.define(version: 20171219193745) do
 
   create_table "follow_relationships", force: true do |t|
     t.integer  "follower_id"
@@ -41,17 +41,6 @@ ActiveRecord::Schema.define(version: 20171219221218) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
-  create_table "relationships", force: true do |t|
-    t.integer  "follower_id"
-    t.integer  "followee_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "relationships", ["followee_id"], name: "index_relationships_on_followee_id", using: :btree
-  add_index "relationships", ["follower_id", "followee_id"], name: "index_relationships_on_follower_id_and_followee_id", using: :btree
-  add_index "relationships", ["follower_id"], name: "index_relationships_on_follower_id", using: :btree
-
   create_table "tweets", force: true do |t|
     t.string   "content",    limit: 140, default: "", null: false
     t.datetime "created_at"
@@ -80,5 +69,6 @@ ActiveRecord::Schema.define(version: 20171219221218) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
 end
